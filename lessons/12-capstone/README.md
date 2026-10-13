@@ -19,7 +19,7 @@ spec (สิ่งที่ผู้ใช้เห็น):
 | กรอก units ถูกต้อง | "You get X THB" (units × NAV ปัดลง 2 ตำแหน่ง) และกด Sell ได้ |
 | กด "Sell all" | ช่อง Units ถูกเติมด้วยจำนวนที่ถืออยู่ทั้งหมด |
 | ถือไม่ถึง 30 วัน | ข้อความ "Held less than 30 days: 0.5% fee" และหักค่าธรรมเนียม 0.5% (ปัดลง 2 ตำแหน่ง) |
-| ช่องว่าง / มีแต่ช่องว่าง | "Please enter units" |
+| มีแต่ช่องว่าง (เช่น `'   '`) | "Please enter units" (ลบจนช่องว่างเปล่า = ไม่มี error เหมือนแถวแรก) |
 | ไม่ใช่ตัวเลข, 0, ติดลบ | "Units must be greater than 0" |
 | มากกว่าที่ถือ | "You only have N units" |
 
@@ -53,11 +53,11 @@ spec (สิ่งที่ผู้ใช้เห็น):
 </details>
 
 <details>
-<summary>ตัวเลขที่ใช้ได้ (Fund A NAV 12.5)</summary>
+<summary>ตัวเลขที่ใช้ได้</summary>
 
-- 100 units, 60 วัน → 1,250.00
-- 100 units, 29 วัน → 1,243.75
-- 1.2345 units × NAV 8.2345 = 10.1654... → 10.16 (ปัดลง ไม่ใช่ 10.17)
+- Fund A (NAV 12.5) 100 units, 60 วัน → 1,250.00
+- Fund A (NAV 12.5) 100 units, 29 วัน → 1,243.75
+- Fund B (NAV 8.2345) 1.2345 units = 10.1654... → 10.16 (ปัดลง ไม่ใช่ 10.17) test ที่ `calcSellAmount`
 </details>
 
 ## 6. Key points

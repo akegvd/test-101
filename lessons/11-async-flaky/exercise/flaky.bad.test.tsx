@@ -6,7 +6,7 @@ import { funds as allFunds } from '@/mocks/data';
 import type { Fund } from '@/types';
 import { renderWithProviders } from '@/test/renderWithProviders';
 
-// ❌ All 3 tests pass today. Each one is wrong in a different way (see README).
+// ❌ All 4 tests pass today. They show 3 different mistakes (see README).
 
 describe('FundCard', () => {
   it('shows the fund name', async () => {
