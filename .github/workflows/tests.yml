@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The app isn't on main yet. Until package-lock.json exists, the
+      # remaining steps are skipped so this workflow stays green.
+      - name: Check for package-lock.json
+        if: hashFiles('package-lock.json') == ''
+        run: echo "::notice::No package-lock.json yet, skipping lint and tests."
+
+      - uses: actions/setup-node@v4
+        if: hashFiles('package-lock.json') != ''
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        if: hashFiles('package-lock.json') != ''
+        run: npm ci
+
+      - name: Lint
+        if: hashFiles('package-lock.json') != ''
+        run: npm run lint
+
+      - name: Run solution tests
+        if: hashFiles('package-lock.json') != ''
+        run: npm run test:solution
