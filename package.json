@@ -12,11 +12,15 @@
     "test:lesson": "node scripts/test-lesson.mjs",
     "test:solution": "vitest run /solution/",
     "coverage": "vitest run --coverage",
+    "coverage:capstone": "vitest run lessons/12-capstone/exercise --coverage --coverage.include=src/utils/calcSellAmount.ts --coverage.include=src/components/SellFundForm.tsx",
     "test:mutation": "stryker run",
     "test:mutation:exercise": "stryker run stryker.exercise.config.json",
+    "test:mutation:capstone": "stryker run stryker.capstone.config.json",
     "lint": "eslint . && tsc --noEmit",
     "demo:rename": "node scripts/demo-rename.mjs apply",
-    "demo:revert": "node scripts/demo-rename.mjs revert"
+    "demo:revert": "node scripts/demo-rename.mjs revert",
+    "bug:plant": "node scripts/bug-hunt.mjs plant",
+    "bug:reveal": "node scripts/bug-hunt.mjs reveal"
   },
   "msw": {
     "workerDirectory": [

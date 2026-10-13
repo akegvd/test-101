@@ -1,0 +1,11 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "testRunner": "vitest",
+  "vitest": {
+    "dir": "lessons/12-capstone/exercise"
+  },
+  "mutate": ["src/utils/calcSellAmount.ts", "src/components/SellFundForm.tsx"],
+  "reporters": ["clear-text", "html", "progress"],
+  "htmlReporter": { "fileName": "reports/mutation-capstone/index.html" },
+  "thresholds": { "high": 90, "low": 70, "break": null }
+}

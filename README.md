@@ -32,6 +32,11 @@ npm run test:solution  # รัน test เฉลยทั้งหมด ต้
 | 07 | [Custom hooks](lessons/07-custom-hooks/README.md) | `renderHook`, `act`, fake timers กับ debounce |
 | 08 | [Page / feature integration](lessons/08-page-integration/README.md) | test ทั้ง flow ข้ามหน้าด้วย `MemoryRouter`, Testing Trophy |
 | 09 | [jsdom limits](lessons/09-jsdom-limits/README.md) | jsdom ทำอะไรไม่ได้, mock `IntersectionObserver` |
+| 10 | [Bug hunt](lessons/10-bug-hunt/README.md) | ซ่อน bug แบบสุ่ม แล้วเขียน test จนจับได้เอง |
+| 11 | [Async & flaky tests](lessons/11-async-flaky/README.md) | `setTimeout` รอ, ลืม `await`, state ที่แชร์ระหว่าง test |
+| 12 | [Capstone: Sell fund](lessons/12-capstone/README.md) | ฟีเจอร์ใหม่ที่ยังไม่มี test วางแผนและเขียนเองทั้งหมด วัดด้วย coverage + Stryker |
+
+จบทุกบท ให้ผู้เรียนอธิบายว่าทำไม test ของตัวเองดี ตาม [REVIEW-CHECKLIST.md](REVIEW-CHECKLIST.md)
 
 คำถามที่พบบ่อยอยู่ใน [FAQ.md](FAQ.md)
 
@@ -48,8 +53,10 @@ npm run test:solution  # รัน test เฉลยทั้งหมด ต้
 | `npm run coverage` | coverage report → `coverage/index.html` |
 | `npm run test:mutation` | Stryker กับ `calcFee.ts` + `calcUnits.ts` โดยใช้ test เฉลยบท 03 → `reports/mutation/` |
 | `npm run test:mutation:exercise` | Stryker แบบเดียวกัน แต่ใช้ test ใน `exercise/` ของบท 03 |
+| `npm run coverage:capstone` / `test:mutation:capstone` | coverage / Stryker ของบท 12 (ใช้ test ใน `exercise/`) |
 | `npm run lint` | ESLint + TypeScript type check |
 | `npm run demo:rename` / `demo:revert` | demo ของบท 06 (refactor แล้วดูว่า test ไหนพัง) |
+| `npm run bug:plant` / `bug:reveal` | บท 10: ซ่อน bug 1 ตัวใน `src/utils/` / เฉลยและคืนค่า |
 
 ## โครงสร้าง
 
@@ -57,8 +64,8 @@ npm run test:solution  # รัน test เฉลยทั้งหมด ต้
 src/
 ├── api/          fetch functions (getFunds, getFund, getAccount)
 ├── hooks/        useFund, useFunds, useAccount, useFundSearch
-├── utils/        pure functions (formatAmount, calcUnits, calcFee, validateAmount)
-├── components/   FundCard, BuyFundForm, FundList, LazyFundList
+├── utils/        pure functions (formatAmount, calcUnits, calcFee, validateAmount, calcSellAmount)
+├── components/   FundCard, BuyFundForm, FundList, LazyFundList, SellFundForm (บท 12)
 ├── pages/        BuyFundPage, ConfirmPage, AllFundsPage
 ├── mocks/        MSW handlers + fake data (ใช้ทั้งใน test และ npm run dev)
 └── test/         setup.ts (MSW server), renderWithProviders
