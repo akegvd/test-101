@@ -2,3 +2,10 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .venv/
+node_modules
+dist
+coverage
+reports
+.stryker-tmp
+*.log
+*.tsbuildinfo
