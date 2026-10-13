@@ -9,3 +9,4 @@ reports
 .stryker-tmp
 *.log
 *.tsbuildinfo
+.bug-hunt.json
