@@ -60,6 +60,12 @@ describe('Buy fund flow', () => {
     expect(screen.getByRole('link', { name: 'Back' })).toHaveAttribute('href', '/');
   });
 
+  it('open /confirm for a fund that does not exist → shows "Fund not found"', async () => {
+    renderApp('/confirm?fundId=999&amount=5000');
+
+    expect(await screen.findByText('Fund not found')).toBeInTheDocument();
+  });
+
   it('fund list API fails → shows "Something went wrong"', async () => {
     server.use(http.get('/api/funds', () => new HttpResponse(null, { status: 500 })));
 

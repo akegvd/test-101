@@ -54,7 +54,7 @@ it('rounds long decimals to 2 places: 1.239 → "1.24"', () => {
 
 ## 3. Before you start
 1. เปิด `exercise/formatAmount.bad.test.ts` แล้ว **เขียนรายการปัญหา** ของ test นี้ (อย่างน้อย 3 ข้อ)
-2. เขียนรายการว่า `calcUnits` ควร test กรณีไหนบ้าง (คิด edge case: 0, ติดลบ, ทศนิยมยาว, เลขใหญ่มาก, `NaN`)
+2. เขียนรายการว่า `calcUnits` ควร test กรณีไหนบ้าง (คิด edge case: 0, ติดลบ, ทศนิยมยาว, เลขใหญ่มาก, `NaN`, floating point)
 
 ## 4. Exercise
 1. ทำข้อ "Before you start" ให้เสร็จ
@@ -81,6 +81,7 @@ it('rounds long decimals to 2 places: 1.239 → "1.24"', () => {
 - `calcUnits(200, 3)` → `66.6666` (ไม่ใช่ 66.6667 เพราะปัด **ลง**)
 - `calcUnits(1000, 8.2345)` → `121.4402`
 - `calcUnits(1_000_000_000, 12.5)` → `80_000_000`
+- `calcUnits(1004, 12.5)` → `80.32` (ถ้าใช้ `Math.floor` ตรง ๆ จะได้ `80.3199` เพราะ floating point: `1004 / 12.5 * 10000` = `803199.9999999999`)
 - `it.each([0, -5, NaN])('NAV %s → throws ...', (nav) => ...)`
 </details>
 

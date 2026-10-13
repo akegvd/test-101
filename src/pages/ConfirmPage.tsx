@@ -35,8 +35,11 @@ function OrderSummary({ fundId, amount }: SummaryProps) {
   if (fund.isPending || account.isPending) {
     return <p role="status">Loading...</p>;
   }
-  if (fund.isError || account.isError || !fund.data) {
+  if (fund.isError || account.isError) {
     return <p role="alert">Something went wrong</p>;
+  }
+  if (!fund.data) {
+    return <p>Fund not found</p>;
   }
 
   return (

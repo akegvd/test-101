@@ -15,5 +15,6 @@ describe('calcUnits', () => {
   it.todo('exact value: 1000 / 10 → 100');
   it.todo('rounds down: 200 / 3 → 66.6666');
   it.todo('amount 0 → 0 (boundary of "amount < 0")');
+  it.todo('float error does not lower the result: 1004 / 12.5 → 80.32');
   it.todo('NaN NAV and NaN amount → throw with the exact messages');
 });

@@ -23,7 +23,7 @@ npm run test:solution  # รัน test เฉลยทั้งหมด ต้
 | # | บท | เรียนอะไร |
 | --- | --- | --- |
 | 00 | [Setup & basics](lessons/00-setup-basics/README.md) | รัน test, watch mode, `test` vs `it`, `describe`, matcher พื้นฐาน |
-| 01 | [Pure functions & readable tests](lessons/01-pure-functions/README.md) | ชื่อ test ที่ดี, AAA, ไม่มี logic ใน test, `test.each`, edge case |
+| 01 | [Pure functions & readable tests](lessons/01-pure-functions/README.md) | ชื่อ test ที่ดี, AAA, ไม่มี logic ใน test, `it.each`, edge case |
 | 02 | [Coverage](lessons/02-coverage/README.md) | อ่าน coverage report และทำไม 100% ยังไม่พอ |
 | 03 | [Mutation testing](lessons/03-mutation-testing/README.md) | ใช้ Stryker หา test ที่จับ bug ไม่ได้ |
 | 04 | [Form with RTL + user-event](lessons/04-form-testing/README.md) | test แบบผู้ใช้, query priority, `getBy` / `queryBy` / `findBy` |

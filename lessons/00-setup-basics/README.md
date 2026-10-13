@@ -22,7 +22,7 @@ basics.test.ts ──► utils/formatAmount.ts   (1000 → "1,000.00")
 | `npx vitest run lessons/00-setup-basics/exercise/basics.test.ts` | รันไฟล์เดียว |
 | `npm run test:lesson -- 00` | รันทั้งบท (exercise + solution) |
 | `npm run test:lesson -- 00 exercise` | รันเฉพาะ exercise |
-| `npx vitest run -t "toBeNull"` | รันเฉพาะ test ที่ชื่อมีคำนี้ |
+| `npx vitest run -t "formatAmount"` | รันเฉพาะ test ที่ชื่อมีคำนี้ |
 
 `test` กับ `it` คือ **ตัวเดียวกัน** ต่างกันแค่ตอนอ่าน:
 

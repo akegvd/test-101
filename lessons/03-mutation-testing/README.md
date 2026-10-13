@@ -60,6 +60,7 @@ coverage ของ `exercise/` ตอนนี้ = 100% แล้ว ลอง�
 | `/ 100` → `* 100` | ค่าเป๊ะ เช่น `calcFee(1234.56, false)` → `18.52` |
 | `amount < 0` → `amount <= 0` (calcUnits) | `calcUnits(0, 10)` → `0` (ค่าที่ขอบพอดี) |
 | `amount / nav` → `amount * nav` | `calcUnits(1000, 10)` → `100` |
+| `+ FLOAT_ERROR` → `- FLOAT_ERROR` | `calcUnits(1004, 12.5)` → `80.32` (ไม่ใช่ `80.3199`) |
 </details>
 
 <details>

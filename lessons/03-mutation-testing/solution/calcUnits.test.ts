@@ -10,6 +10,10 @@ describe('calcUnits', () => {
     expect(calcUnits(200, 3)).toBe(66.6666);
   });
 
+  it('exact result is not lowered by float error: 1004 / 12.5 → 80.32', () => {
+    expect(calcUnits(1004, 12.5)).toBe(80.32);
+  });
+
   it('amount 0 → 0 units', () => {
     expect(calcUnits(0, 10)).toBe(0);
   });

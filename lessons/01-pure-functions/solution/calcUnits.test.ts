@@ -25,6 +25,7 @@ describe('calcUnits', () => {
     { amount: 0, nav: 10, expected: 0 },
     { amount: 1000, nav: 8.2345, expected: 121.4402 },
     { amount: 1_000_000_000, nav: 12.5, expected: 80_000_000 },
+    { amount: 1004, nav: 12.5, expected: 80.32 }, // floating point gives 80.3199 if not handled
   ])('edge case: $amount / $nav → $expected', ({ amount, nav, expected }) => {
     expect(calcUnits(amount, nav)).toBe(expected);
   });
